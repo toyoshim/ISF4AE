@@ -836,11 +836,12 @@ static PF_Err QueryDynamicFlags(PF_InData* in_data, PF_OutData* out_data, PF_Par
 }
 
 extern "C" DllExport PF_Err
-PluginDataEntryFunction(PF_PluginDataPtr inPtr, PF_PluginDataCB inPluginDataCallBackPtr, SPBasicSuite* inSPBasicSuitePtr, const char* inHostName, const char* inHostVersion) {
+PluginDataEntryFunction2(PF_PluginDataPtr inPtr, PF_PluginDataCB2 inPluginDataCallBackPtr, SPBasicSuite* inSPBasicSuitePtr, const char* inHostName, const char* inHostVersion) {
   PF_Err result = PF_Err_INVALID_CALLBACK;
 
-  result = PF_REGISTER_EFFECT(inPtr, inPluginDataCallBackPtr, CONFIG_NAME, CONFIG_MATCH_NAME, CONFIG_CATEGORY,
-                              AE_RESERVED_INFO);  // Reserved Info
+  result = PF_REGISTER_EFFECT_EXT2(inPtr, inPluginDataCallBackPtr, CONFIG_NAME, CONFIG_MATCH_NAME, CONFIG_CATEGORY,
+                              AE_RESERVED_INFO,  // Reserved Info
+                              AE_ENTRY_POINT, "https://github.com/baku89/ISF4AE");
 
   return result;
 }

@@ -56,16 +56,21 @@ resource 'PiPL' (16000) {
             0x06008024
 
 		},
+		/* [11] */
 		AE_Effect_Global_OutFlags_2 {
             0x08001401
 		},
-		/* [11] */
+		/* [12] */
 		AE_Effect_Match_Name {
 			CONFIG_MATCH_NAME
 		},
-		/* [12] */
+		/* [13] */
 		AE_Reserved_Info {
 			0
+		},
+		/* [14] */
+		AE_Effect_Support_URL {
+			"https://github.com/baku89/ISF4AE"
 		}
 	}
 };
